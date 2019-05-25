@@ -1,3 +1,33 @@
 <p>
   tree works!
 </p>
+
+
+<table>
+  <thead>
+    <tr>
+      <th>
+        <button [disabled]="currentItem == undefined" (click)="back()">
+          back
+        </button> 
+        Current Node: {{ currentItem?.label }}
+      </th>
+    </tr>
+
+  </thead>
+
+  <tbody>
+    <tr *ngFor="let item of showData">
+      <td>
+          <input type="checkbox" [checked]="item?.checked" />
+
+          {{ item.label }}
+    
+          <button *ngIf="item.children != undefined" (click)="selectRow(item)">
+            >
+          </button>
+      </td>
+    </tr>
+  </tbody>
+
+</table>
