@@ -1,7 +1,7 @@
 export class TreeItem {
     public label: string;
-    public id: number;
+    public id: string;
     public checked: boolean;
-    public parentIdString: string;
+    public parentId: string;
     public children: TreeItem[];
 }

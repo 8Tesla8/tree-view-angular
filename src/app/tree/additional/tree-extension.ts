@@ -4,9 +4,9 @@ export class TreeExtension {
 
     public parentKeyAbsent(treeItem: TreeItem): boolean {
       return (
-        treeItem.parentIdString === undefined ||
-        treeItem.parentIdString === null ||
-        treeItem.parentIdString === '')
+        treeItem.parentId === undefined ||
+        treeItem.parentId === null ||
+        treeItem.parentId === '')
     }
   
     public searchItem(treeItem: TreeItem[], searchId: string): any {
@@ -34,77 +34,77 @@ export class TreeExtension {
   
       return [{
         label: '1',
-        id: 1,
+        id: '1',
         checked: false,
-        parentIdString: '',
+        parentId: '',
         children: [{
           label: '1 1',
-          id: 11,
+          id: '11',
           checked: false,
-          parentIdString: '1',
+          parentId: '1',
           children: [{
             label: '1 1 1',
-            id: 111,
+            id: '111',
             checked: false,
-            parentIdString: '11',
+            parentId: '11',
           } as TreeItem,
           {
             label: '1 1 2',
-            id: 112,
+            id: '112',
             checked: false,
-            parentIdString: '11',
+            parentId: '11',
             children: [{
               label: '1 1 2 1',
-              id: 1121,
+              id: '1121',
               checked: false,
-              parentIdString: '112',
+              parentId: '112',
             } as TreeItem,
             {
               label: '1 1 2 2',
-              id: 1122,
+              id: '1122',
               checked: false,
-              parentIdString: '112',
+              parentId: '112',
             } as TreeItem ]
           }]
         },
         {
           label: '1 2',
-          id: 12,
+          id: '12',
           checked: false,
-          parentIdString: '',
+          parentId: '',
         } as TreeItem]
       },
       {
         label: '2',
-        id: 2,
+        id: '2',
       } as TreeItem,
       {
         label: '3',
-        id: 3,
+        id: '3',
         checked: false,
-        parentIdString: '',
+        parentId: '',
         children: [{
           label: '3 1',
-          id: 31,
+          id: '31',
           checked: false,
-          parentIdString: '3',
+          parentId: '3',
         } as TreeItem,
         {
           label: '3 2',
-          id: 32,
+          id: '32',
           checked: false,
-          parentIdString: '3',
+          parentId: '3',
           children: [{
             label: '3 2 1',
-            id: 321,
+            id: '321',
             checked: false,
-            parentIdString: '32',
+            parentId: '32',
           } as TreeItem,
           {
             label: '3 2 2',
-            id: 322,
+            id: '322',
             checked: false,
-            parentIdString: '32',
+            parentId: '32',
           } as TreeItem]
         }]
       },];

@@ -33,7 +33,7 @@ export class TreeComponent implements OnInit {
       return;
     }
 
-    let foundItem = this.treeExtension.searchItem(this.allData, this.currentItem.parentIdString);
+    let foundItem = this.treeExtension.searchItem(this.allData, this.currentItem.parentId);
 
     this.showData = foundItem.children;
     this.currentItem = foundItem;
