@@ -9,18 +9,18 @@ export class TreeExtension {
         treeItem.parentId === '')
     }
   
-    public searchItem(treeItem: TreeItem[], searchId: string): any {
+    public searchItem(treeItems: TreeItem[], searchId: string): any {
       let foundItem = null;
   
-      for (let index = 0; index < treeItem.length; index++) {
-        if (treeItem[index].id === searchId) {
-          foundItem = treeItem[index];
+      for (let index = 0; index < treeItems.length; index++) {
+        if (treeItems[index].id === searchId) {
+          foundItem = treeItems[index];
           break;
         }
   
-        if (treeItem[index].children !== undefined &&
-          treeItem[index].children.length > 0) {
-          foundItem = this.searchItem(treeItem[index].children, searchId);
+        if (treeItems[index].children !== undefined &&
+          treeItems[index].children.length > 0) {
+          foundItem = this.searchItem(treeItems[index].children, searchId);
         }
   
         if (foundItem !== null)
