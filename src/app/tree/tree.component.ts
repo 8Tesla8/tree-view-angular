@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { TreeExtension } from './additional/tree-extension';
+import { TreeItem } from './additional/tree-item';
+import * as _ from 'lodash';
 
 @Component({
   selector: 'app-tree',
@@ -10,33 +12,53 @@ export class TreeComponent implements OnInit {
 
   constructor() { }
 
-  public groupExtension: TreeExtension = new TreeExtension();
+  public treeExtension: TreeExtension = new TreeExtension();
 
-  public currentItem: any;
+  public currentItem: TreeItem;
 
-  public allData: any;
-  public showData: any;
-  
+  public selectedItems: TreeItem[] = [];
+
+  public allData: TreeItem[];
+  public showData: TreeItem[];
+
   ngOnInit() {
     this.allData =
-    this.showData = this.groupExtension.generateTestData();
+      this.showData = this.treeExtension.generateTestData();
   }
 
   public back() {
-    if (this.groupExtension.parentKeyAbsent(this.currentItem)) {
+    if (this.treeExtension.parentKeyAbsent(this.currentItem)) {
       this.showData = this.allData;
       this.currentItem = undefined;
       return;
     }
 
-    let foundItem = this.groupExtension.searchItem(this.allData, this.currentItem.parentIdString);
+    let foundItem = this.treeExtension.searchItem(this.allData, this.currentItem.parentIdString);
 
     this.showData = foundItem.children;
     this.currentItem = foundItem;
   }
 
-  public selectRow(group) {
-    this.currentItem = group;
-    this.showData = group.children;
+  public showChildren(treeItem: TreeItem,) {
+    this.currentItem = treeItem;
+    this.showData = treeItem.children;
+  }
+
+  public changeStatus(treeItem: TreeItem, event: any) {
+    if (treeItem.checked === undefined ||
+      treeItem.checked === null) {
+        treeItem.checked = true;
+    }
+    else {
+      treeItem.checked = !treeItem.checked;
+    }
+
+
+    if(treeItem.checked === true){
+      this.selectedItems.push(treeItem);
+    }
+    else {
+      _.remove(this.selectedItems, { id: treeItem.id });
+    }
   }
 }

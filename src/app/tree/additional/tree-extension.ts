@@ -35,12 +35,12 @@ export class TreeExtension {
       return [{
         label: '1',
         id: 1,
-        checked: true,
+        checked: false,
         parentIdString: '',
         children: [{
           label: '1 1',
           id: 11,
-          checked: true,
+          checked: false,
           parentIdString: '1',
           children: [{
             label: '1 1 1',
@@ -81,12 +81,12 @@ export class TreeExtension {
       {
         label: '3',
         id: 3,
-        checked: true,
+        checked: false,
         parentIdString: '',
         children: [{
           label: '3 1',
           id: 31,
-          checked: true,
+          checked: false,
           parentIdString: '3',
         } as TreeItem,
         {

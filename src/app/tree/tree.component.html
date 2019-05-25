@@ -19,11 +19,11 @@
   <tbody>
     <tr *ngFor="let item of showData">
       <td>
-          <input type="checkbox" [checked]="item?.checked" />
+          <input type="checkbox" [checked]="item?.checked" (change)="changeStatus(item, $event)"/>
 
           {{ item.label }}
     
-          <button *ngIf="item.children != undefined" (click)="selectRow(item)">
+          <button *ngIf="item.children != undefined" (click)="showChildren(item)">
             >
           </button>
       </td>
@@ -31,3 +31,12 @@
   </tbody>
 
 </table>
+
+
+<br> <br>
+
+SELECTED ITEMS
+<div *ngFor="let item of selectedItems"> 
+  {{ item.label }}
+</div>
+
