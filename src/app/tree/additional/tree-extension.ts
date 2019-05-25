@@ -13,7 +13,7 @@ export class TreeExtension {
       let foundItem = null;
   
       for (let index = 0; index < treeItem.length; index++) {
-        if (treeItem[index].id.toString() === searchId) {
+        if (treeItem[index].id === searchId) {
           foundItem = treeItem[index];
           break;
         }
